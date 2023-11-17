@@ -381,7 +381,7 @@ public class QuerySyncProject {
     }
     Set<Label> pendingTargets =
         dependencyTracker.getPendingTargets(workspaceRoot.relativize(virtualFile));
-    return pendingTargets == null || pendingTargets.isEmpty();
+    return pendingTargets.isEmpty();
   }
 
   /**

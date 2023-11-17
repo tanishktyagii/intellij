@@ -364,4 +364,13 @@ public abstract class BuildGraphData {
         .flatMap(Optional::stream)
         .collect(toImmutableSet());
   }
+
+  public ImmutableSet<DependencyTrackingBehavior> getDependencyTrackingTypes(Label target) {
+    if (!targetMap().containsKey(target)) {
+      return ImmutableSet.of();
+    }
+    return targetMap().get(target).languages().stream()
+        .map(l -> l.dependencyTrackingBehavior)
+        .collect(toImmutableSet());
+  }
 }
